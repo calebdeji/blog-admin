@@ -1,9 +1,14 @@
 import React, { Component, useState } from "react";
-import AuthLayout from "./components/AuthLayout";
+import { useRouter } from "next/router";
+import AuthLayout from "../components/Auth/AuthLayout";
 import Head from "next/head";
 const Login = () => {
+    const { push } = useRouter();
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log("hello", push);
+        push("/blog");
     };
 
     const stylesColor = { greyBorder: "#e8e8e8" };
