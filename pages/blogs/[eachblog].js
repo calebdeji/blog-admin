@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import HomeLayout from "../../components/Home/HomeLayout";
@@ -10,11 +10,15 @@ const EachBlog = () => {
     const {
         query: { eachblog },
     } = useRouter();
+    useEffect(() => {
+        window.prettyPrint();
+    }, []);
     return (
         <>
             <Head>
                 <title> Calebdeji | {eachblog}</title>
-                <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+                <link rel='stylesheet' href='/prettify.css' />
+                <script src='/prettify.js'></script>
             </Head>
             <HomeLayout>
                 <div className='blog__heading'>
@@ -100,31 +104,6 @@ const htmlText = `
     function testing(){
         var calebdeji = addition;
     }
-    const setRootVariable = (status) => {
-        const rootDocument = document.documentElement.style;
-        if (status) {
-            rootDocument.setProperty("--theme-preference", "#ffffff");
-            rootDocument.setProperty("--light-theme-box-shadow", " 0px 5px 20px rgba(0, 0, 0, 0.05)");
-            rootDocument.setProperty("--light-theme-body", "#e5e5e5");
-            rootDocument.setProperty("--theme-body-text", "rgba(0,0,0)");
-            rootDocument.setProperty(
-                "--switch-box",
-                "inset 10px 10px 21px #e6e6e6, inset -10px -10px 21px #ffffff"
-            );
-        } else {
-            rootDocument.setProperty("--theme-preference", "#000000");
-            rootDocument.setProperty(
-                "--light-theme-box-shadow",
-                "8px 8px 18px #0b0a0a,  -8px -8px 18px #110e0e;"
-            );
-            rootDocument.setProperty("--light-theme-body", "rgba(0,0,0,0.95)");
-            rootDocument.setProperty("--theme-body-text", "rgba(255,255,255,0.7)");
-            rootDocument.setProperty(
-                "--switch-box",
-                " inset 10px 10px 16px #131212,  inset -10px -10px 16px #191818"
-            );
-        }
-    };
     
 </pre>
 <p class="blog__paragraph">
@@ -148,4 +127,15 @@ const htmlText = `
     labore facere est? Perferendis autem consequuntur necessitatibus eaque quia,
     cupiditate quam aspernatur fuga molestias voluptas aut unde et consequatur
 </p>
+`;
+const codeString = `
+<pre class='prettyprint'>
+    const firstName = "Caleb";
+    const secondName = "deji"; 
+    const additon = firstName + secondName; // addition
+    function testing(){
+        var calebdeji = addition;
+    }
+    
+</pre>
 `;

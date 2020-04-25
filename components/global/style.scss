@@ -1,10 +1,10 @@
 :root {
     --primary-color: #8a057a;
     --theme-preference: #ffffff;
-    --light-theme-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-    --light-theme-body: #e5e5e5;
+    --theme-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    --theme-body: #e5e5e5;
     --theme-body-text: rgba(0, 0, 0);
-    --switch-box: inset 10px 10px 16px #070505, inset -10px -10px 16px #090707;
+    --switch-box: inset 10px 10px 21px #e6e6e6, inset -10px -10px 21px #ffffff;
 }
 html,
 body {
@@ -21,4 +21,12 @@ body {
 
 a {
     text-decoration: none;
+}
+[data-theme="dark"] {
+    --primary-color: #8a057a;
+    --theme-preference: #000000;
+    --theme-box-shadow: 8px 8px 18px #0b0a0a, -8px -8px 18px #110e0e;
+    --theme-body: rgba(0, 0, 0, 0.95);
+    --theme-body-text: rgba(255, 255, 255, 0.7);
+    --switch-box: inset 10px 10px 16px #131212, inset -10px -10px 16px #191818;
 }

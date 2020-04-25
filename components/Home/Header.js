@@ -41,7 +41,7 @@ const Header = () => {
                     width: -webkit-fill-available;
                     margin-left: 200px;
                     height: 70px;
-                    box-shadow: var(--light-theme-box-shadow);
+                    box-shadow: var(--theme-box-shadow);
                     align-items: center;
                     padding: 0 30px;
                     z-index: 99;

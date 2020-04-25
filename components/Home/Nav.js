@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBlog, faBook, faTasks, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+    faBlog,
+    faBook,
+    faTasks,
+    faSignOutAlt,
+    faBookOpen,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import setRootVariable from "../../helpers/setRootVariables";
 
@@ -86,7 +92,7 @@ const Nav = (props) => {
                     display: grid;
                     grid-template-rows: 70px auto;
                     height: 100vh;
-                    box-shadow: var(--light-theme-box-shadow);
+                    box-shadow: var(--theme-box-shadow);
                     background-color: var(--theme-preference);
                     z-index: 99;
                 }
@@ -94,7 +100,7 @@ const Nav = (props) => {
                     display: flex;
                     align-items: center;
                     padding-left: 15px;
-                    box-shadow: var(--light-theme-box-shadow);
+                    box-shadow: var(--theme-box-shadow);
                 }
                 .home__nav__switch {
                     display: block;
@@ -199,6 +205,7 @@ const navLinks = [
     { id: 2, name: "Drafts", link: "/drafts", icon: faBook },
     { id: 3, name: "To-Do", link: "/to-do", icon: faTasks },
     { id: 4, name: "Logout", link: "/", icon: faSignOutAlt },
+    { id: 5, name: "Publish", link: "/publish", icon: faBookOpen },
 ];
 
 export default Nav;
