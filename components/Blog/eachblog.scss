@@ -1,3 +1,36 @@
+.blog__heading {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows: repeat(2, max-content);
+    grid-gap: 10px 30px;
+    padding: 30px 0 20px 0;
+}
+.blog__heading__title {
+    grid-column: 1 / span 2;
+}
+.blog__body,
+.blog__heading {
+    width: 80%;
+    margin: auto;
+}
+.code {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    padding: 15px 10px;
+}
+
+@media all and (min-width: 800px) {
+    .blog__image {
+        width: 500px;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        margin: auto;
+    }
+}
+
 /* Pretty printing styles. Used with prettify.js. */
 /* Vim sunburst theme by David Leibovic */
 

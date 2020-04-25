@@ -3,6 +3,7 @@ import HomeLayout from "../components/Home/HomeLayout";
 
 import Head from "next/head";
 import Link from "next/link";
+import "../components/Blog-and-Draft/blog-draft-style.scss";
 const Home = () => {
     const removeHtmlTagsAndTrimString = (htmlElements) => {
         return `${htmlElements.substr(0, 100)} ...`;
@@ -29,48 +30,18 @@ const Home = () => {
                         );
                     })}
                 </div>
-                <style jsx>
-                    {`
-                        .blog__lists {
-                            display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                            grid-gap: 30px 30px;
-                        }
-                        .each-blog {
-                            border: solid 1px var(--theme-preference);
-                            background-color: var(--theme-preference);
-                            border-radius: 4px;
-                            box-shadow: var(--light-theme-box-shadow);
-                            padding: 20px 10px;
-                        }
-                        .each-blog__image {
-                            width: 100%;
-                            display: block;
-                            margin: auto;
-                            // border-radius: 100%;
-                            height: 100px;
-                            object-fit: cover;
-                        }
-                        .each-blog__title {
-                            color: #404042;
-                        }
-                        .each-blog__details {
-                            color: #525050;
-                        }
-                    `}
-                </style>
             </HomeLayout>
         </>
     );
 };
 export default Home;
 
-const blogDetails = [
+export const blogDetails = [
     {
         id: 1,
 
-        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing 
+        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing
             elit.Maxime, saepe!Lorem ipsum dolor sit amet consectetur adipisicing e
             lit.Maxime, saepe!
             `,
@@ -80,8 +51,8 @@ const blogDetails = [
     {
         id: 2,
 
-        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing 
+        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing
             elit.Maxime, saepe!Lorem ipsum dolor sit amet consectetur adipisicing e
             lit.Maxime, saepe!
             `,
@@ -91,8 +62,8 @@ const blogDetails = [
     {
         id: 3,
 
-        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing 
+        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing
             elit.Maxime, saepe!Lorem ipsum dolor sit amet consectetur adipisicing e
             lit.Maxime, saepe!
             `,
@@ -102,8 +73,8 @@ const blogDetails = [
     {
         id: 4,
 
-        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing 
+        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing
             elit.Maxime, saepe!Lorem ipsum dolor sit amet consectetur adipisicing e
             lit.Maxime, saepe!
             `,
@@ -113,8 +84,8 @@ const blogDetails = [
     {
         id: 5,
 
-        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing 
+        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing
             elit.Maxime, saepe!Lorem ipsum dolor sit amet consectetur adipisicing e
             lit.Maxime, saepe!
             `,
@@ -124,8 +95,8 @@ const blogDetails = [
     {
         id: 6,
 
-        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing 
+        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing
             elit.Maxime, saepe!Lorem ipsum dolor sit amet consectetur adipisicing e
             lit.Maxime, saepe!
             `,
@@ -135,8 +106,8 @@ const blogDetails = [
     {
         id: 7,
 
-        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing 
+        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime, saepe.Lorem ipsum dolor sit amet consectetur adipisicing
             elit.Maxime, saepe!Lorem ipsum dolor sit amet consectetur adipisicing e
             lit.Maxime, saepe!
             `,

@@ -1,0 +1,31 @@
+.publish__input-field {
+    border: none;
+    background: transparent;
+    border-bottom: solid 1px var(--theme-body-text);
+    color: var(--theme-body-text);
+
+    width: 100%;
+}
+.publish__input-field:focus {
+}
+
+.publish__button-bar {
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, max-content));
+    column-gap: 20px;
+    height: 70px;
+    align-items: center;
+    background-color: var(--theme-preference);
+    bottom: 0;
+    left: 200px;
+    right: 0;
+    justify-content: center;
+}
+
+.publish__button {
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    padding: 0 20px;
+}

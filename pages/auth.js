@@ -6,9 +6,7 @@ const Login = () => {
     const { push } = useRouter();
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("hello", push);
-        push("/blog");
+        // push("/blog");
     };
 
     const stylesColor = { greyBorder: "#e8e8e8" };
@@ -18,7 +16,7 @@ const Login = () => {
                 <title> Calebdeji Blog | Admin </title>
             </Head>
             <AuthLayout>
-                <form action='' onSubmit={handleSubmit} className='auth__form'>
+                <form action='/blog' onSubmit={handleSubmit} className='auth__form'>
                     <div className='auth__input-container'>
                         <label htmlFor='username'> Username</label>
                         <input
