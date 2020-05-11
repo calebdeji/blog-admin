@@ -9,7 +9,7 @@ const HomeLayout = ({ children, router }) => {
     useEffect(() => {
         if (!isLogin) {
             const { push } = router;
-            // push("/");
+            push("/");
         }
     }, []);
     return (
