@@ -1,0 +1,52 @@
+:root {
+    --primary-color: #8a057a;
+    --theme-preference: #ffffff;
+    --theme-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    --theme-body: #e5e5e5;
+    --theme-body-text: rgba(0, 0, 0);
+    --switch-box: inset 10px 10px 21px #e6e6e6, inset -10px -10px 21px #ffffff;
+}
+html,
+body {
+    padding: 0;
+    margin: 0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+        Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+[data-theme="dark"] {
+    --primary-color: #8a057a;
+    --theme-preference: #000000;
+    --theme-box-shadow: 8px 8px 18px #0b0a0a, -8px -8px 18px #110e0e;
+    --theme-body: rgba(0, 0, 0, 0.95);
+    --theme-body-text: rgba(255, 255, 255, 0.7);
+    --switch-box: inset 10px 10px 16px #131212, inset -10px -10px 16px #191818;
+}
+
+.loading {
+    display: block;
+    width: 10px;
+    height: 10px;
+    /* position: absolute; */
+    animation: loading 0.6s infinite ease-out;
+    border: solid 1px red;
+    border-color: transparent rgba(178, 176, 176, 0.95) rgba(255, 255, 255, 0.7);
+    border-radius: 100%;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
