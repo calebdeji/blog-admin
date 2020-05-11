@@ -30,3 +30,23 @@ a {
     --theme-body-text: rgba(255, 255, 255, 0.7);
     --switch-box: inset 10px 10px 16px #131212, inset -10px -10px 16px #191818;
 }
+
+.loading {
+    display: block;
+    width: 10px;
+    height: 10px;
+    /* position: absolute; */
+    animation: loading 0.6s infinite ease-out;
+    border: solid 1px red;
+    border-color: transparent rgba(178, 176, 176, 0.95) rgba(255, 255, 255, 0.7);
+    border-radius: 100%;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

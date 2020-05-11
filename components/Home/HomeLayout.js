@@ -1,9 +1,17 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState, useContext } from "react";
 import Header from "./Header";
 import Nav from "./Nav";
-import "../global/style.scss";
 import Head from "next/head";
-const HomeLayout = ({ children }) => {
+import { IsLoginContext } from "../../pages/_app";
+import { withRouter } from "next/router";
+const HomeLayout = ({ children, router }) => {
+    const { isLogin } = useContext(IsLoginContext);
+    useEffect(() => {
+        if (!isLogin) {
+            const { push } = router;
+            // push("/");
+        }
+    }, []);
     return (
         <>
             <Header />
@@ -16,7 +24,13 @@ const HomeLayout = ({ children }) => {
                         padding: 10px 20px;
                         background-color: var(--theme-body);
                         color: var(--theme-body-text);
-                        min-height: 100vh;
+                        min-height: calc(100vh - 70px);
+                    }
+                    @media all and (max-width: 800px) {
+                        .home__body {
+                            margin-left: 0;
+                            margin-bottom: 70px;
+                        }
                     }
                 `}
             </style>
@@ -24,4 +38,4 @@ const HomeLayout = ({ children }) => {
     );
 };
 
-export default HomeLayout;
+export default withRouter(HomeLayout);

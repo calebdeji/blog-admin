@@ -3,11 +3,10 @@ import HomeLayout from "../components/Home/HomeLayout";
 
 import Head from "next/head";
 import Link from "next/link";
-import "../components/Blog-and-Draft/blog-draft-style.scss";
-const Home = () => {
-    const removeHtmlTagsAndTrimString = (htmlElements) => {
-        return `${htmlElements.substr(0, 100)} ...`;
-    };
+import axios from "axios";
+import { baseEndPoint } from "../utils/server-details";
+import BlogList from "../components/Blog/BlogList";
+const Home = ({ links }) => {
     return (
         <>
             <Head>
@@ -15,18 +14,18 @@ const Home = () => {
             </Head>
             <HomeLayout>
                 <div className='blog__lists'>
-                    {blogDetails.map((blog) => {
-                        const { id, image, details, title, url } = blog;
+                    {links.map((blog) => {
+                        const { id, details, title, url, imageURL } = blog;
                         return (
-                            <Link key={id} href={`/blogs/[eachblog]`} as={`/blogs/${url}`}>
-                                <a className='each-blog'>
-                                    <img src='/css-in-js.png' alt='' className='each-blog__image' />
-                                    <h3 className='each-blog__title'> {title}</h3>
-                                    <p className='each-blog__details'>
-                                        {removeHtmlTagsAndTrimString(details)}
-                                    </p>
-                                </a>
-                            </Link>
+                            <BlogList
+                                imageURL={imageURL}
+                                title={title}
+                                details={details}
+                                key={id}
+                                urlRelative='/blogs/published/[eachblog] '
+                                urlRepresentative={`/blogs/published/${url}`}
+                                id={id}
+                            />
                         );
                     })}
                 </div>
@@ -34,6 +33,24 @@ const Home = () => {
         </>
     );
 };
+
+export const getStaticProps = async () => {
+    try {
+        const blogList = await axios({ url: `${baseEndPoint}/get-links`, method: "GET" });
+        const links = blogList.data.data;
+        console.log("Links are ", links);
+        return { props: { links, isError: false } };
+    } catch (error) {
+        console.log("Error : ", error);
+        return {
+            props: {
+                links: [{ id: 1, details: "Null", title: "Null", url: "Null" }],
+                isError: true,
+            },
+        };
+    }
+};
+
 export default Home;
 
 export const blogDetails = [

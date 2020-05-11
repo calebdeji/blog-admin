@@ -59,6 +59,11 @@ const Header = () => {
                     align-items: center;
                     column-gap: 15px;
                 }
+                @media all and (max-width: 800px) {
+                    .header {
+                        margin-left: 100px;
+                    }
+                }
             `}</style>
         </div>
     );

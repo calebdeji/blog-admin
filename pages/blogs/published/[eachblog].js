@@ -1,43 +1,80 @@
 import React, { Component, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import HomeLayout from "../../components/Home/HomeLayout";
+import HomeLayout from "../../../components/Home/HomeLayout";
 import ReactMarkdownForHTML from "react-markdown/with-html";
-import "../../components/Blog/eachblog.scss";
 import ReactMarkdown from "react-markdown";
 import {
     BlogBody,
     BlogHeading,
     BlogImage,
     BlogContainer,
-} from "../../components/Blog/blog-component";
+} from "../../../components/Blog/blog-component";
+import Axios from "axios";
+import { baseEndPoint } from "../../../utils/server-details";
 
-const EachBlog = () => {
+const EachBlog = ({ data }) => {
     const {
         query: { eachblog },
+        isFallback,
     } = useRouter();
+    const [isReadyToPrettify, setisReadyToPrettify] = useState(0);
     useEffect(() => {
-        window.prettyPrint();
+        let timerId = setTimeout(() => {
+            window.prettyPrint();
+        }, 2000);
+        return () => {
+            clearTimeout(timerId);
+        };
     }, []);
+    console.log("Data is ", data);
+
     return (
         <>
             <Head>
                 <title> Calebdeji | {eachblog}</title>
                 <link rel='stylesheet' href='/prettify.css' />
-                <script src='/prettify.js'></script>
+                <script src='/prettify.js'> </script>
             </Head>
             <HomeLayout>
-                <BlogContainer>
-                    <BlogHeading title='Title' estimatedTime='4 mins' tags={["JS", "Python"]} />
-                    <BlogImage image='/css-in-js.png' />
-                    <BlogBody text={htmlText} />
-                </BlogContainer>
+                {isFallback ? (
+                    <p>Loading ...</p>
+                ) : (
+                    <BlogContainer>
+                        <BlogHeading
+                            title={data.title}
+                            estimatedTime='4 mins'
+                            tags={["JS", "Python"]}
+                        />
+                        <BlogImage image={data.imageURL} />
+                        <BlogBody text={data.details} />
+                    </BlogContainer>
+                )}
             </HomeLayout>
         </>
     );
 };
 
 export default EachBlog;
+
+export const getStaticProps = async ({ params: { eachblog } }) => {
+    try {
+        console.log("Eachblog ", eachblog);
+        var raw = JSON.stringify({ id: eachblog });
+        console.log("Raw ", raw);
+        const {
+            data: { data },
+        } = await Axios({
+            url: `${baseEndPoint}/get-blog`,
+            method: "POST",
+            data: raw,
+        });
+        return { props: { data } };
+    } catch (error) {}
+};
+export const getStaticPaths = () => {
+    return { paths: [{ params: { eachblog: "idk" } }], fallback: true };
+};
 
 const htmlText = `
 <p class="blog__paragraph">

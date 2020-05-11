@@ -24,9 +24,6 @@ const Nav = (props) => {
             const { status } = isLocalStorageNull;
             setLightThemeEffect(status);
         }
-        // () => {
-        //     setLightThemeEffect(status);
-        // };
     }, []);
 
     const handleThemeChange = () => {
@@ -91,10 +88,12 @@ const Nav = (props) => {
                 .home__nav {
                     display: grid;
                     grid-template-rows: 70px auto;
-                    height: 100vh;
                     box-shadow: var(--theme-box-shadow);
                     background-color: var(--theme-preference);
                     z-index: 99;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
                 }
                 .home__nav__heading {
                     display: flex;
@@ -174,9 +173,33 @@ const Nav = (props) => {
                 @media all and (min-width: 800px) {
                     .home__nav {
                         width: 200px;
+                        height: 100vh;
+                    }
+                }
+                @media all and (max-width: 800px) {
+                    .home__nav__container {
+                        grid-template-columns: repeat(5, max-content);
+                        justify-content: space-around;
+                    }
+                    .home__nav__heading {
                         position: fixed;
                         top: 0;
-                        left: 0;
+                        height: 70px;
+                        width: 100px;
+                        background-color: var(--theme-preference);
+                    }
+                    .home__nav {
+                        bottom: 0;
+                        top: unset;
+                        grid-template-columns: auto;
+                        width: 100%;
+                    }
+                    .home__nav__container__link {
+                        justify-content: center;
+                        padding: 0 10px;
+                    }
+                    .home__nav__container__link span {
+                        display: none;
                     }
                 }
                 @keyframes slide-right {
@@ -203,9 +226,10 @@ const Nav = (props) => {
 const navLinks = [
     { id: 1, name: "Blogs", link: "/blog", icon: faBlog },
     { id: 2, name: "Drafts", link: "/drafts", icon: faBook },
-    { id: 3, name: "To-Do", link: "/to-do", icon: faTasks },
-    { id: 4, name: "Logout", link: "/", icon: faSignOutAlt },
-    { id: 5, name: "Publish", link: "/publish", icon: faBookOpen },
+    { id: 3, name: "To-Do", link: "/", icon: faTasks },
+    { id: 4, name: "Publish", link: "/publish", icon: faBookOpen },
+    { id: 5, name: "Logout", link: "/", icon: faSignOutAlt },
+    ,
 ];
 
 export default Nav;
