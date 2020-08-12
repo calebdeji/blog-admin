@@ -42,7 +42,7 @@ export const editPublishedBlog = async (formData) => {
         });
         return apiResponse;
     } catch (err) {
-        return parseError(error);
+        return parseError(err);
     }
 };
 export const publishNewBlog = async (formData) => {

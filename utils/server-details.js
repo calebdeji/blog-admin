@@ -1,1 +1,1 @@
-export const baseEndPoint = "https://calebdeji-blog.herokuapp.com";
+export const baseEndPoint = "https://secure-waters-09245.herokuapp.com";

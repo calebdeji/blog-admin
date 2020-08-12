@@ -26,7 +26,6 @@ const Login = () => {
         setisSubmitting(true);
         const { username, password } = formField;
         const { isError } = await authLogin({ username, password });
-        alert("Is error", isError);
         if (isError) {
             setisError(true);
             setisSubmitting(false);
@@ -43,32 +42,32 @@ const Login = () => {
                 <title> Calebdeji Blog | Admin </title>
             </Head>
             <AuthLayout>
-                <form onSubmit={handleSubmit} className='auth__form'>
-                    <div className='auth__input-container'>
-                        <label htmlFor='username'> Username</label>
+                <form onSubmit={handleSubmit} className="auth__form">
+                    <div className="auth__input-container">
+                        <label htmlFor="username"> Username</label>
                         <input
-                            type='text'
-                            name='username'
-                            id='username'
-                            className='auth__input'
+                            type="text"
+                            name="username"
+                            id="username"
+                            className="auth__input"
                             autoFocus
                             onChange={handleChange}
                             value={formField.username}
                         />
                     </div>
-                    <div className='auth__input-container'>
-                        <label htmlFor='password'> Password </label>
+                    <div className="auth__input-container">
+                        <label htmlFor="password"> Password </label>
                         <input
-                            type='password'
-                            name='password'
-                            id='password'
-                            className='auth__input'
+                            type="password"
+                            name="password"
+                            id="password"
+                            className="auth__input"
                             onChange={handleChange}
                             value={formField.password}
                         />
                     </div>
                     {isError && <span style={{ color: "red" }}> Invalid Login Details</span>}
-                    <button className='auth__button' disabled={isSubmitting}>
+                    <button className="auth__button" disabled={isSubmitting}>
                         {isSubmitting ? <Loader /> : "Login"}
                     </button>
                 </form>
