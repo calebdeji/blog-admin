@@ -1,1 +1,1 @@
-export const baseEndPoint = "http://localhost:8888";
+export const baseEndPoint = "https://calebdeji-blog.herokuapp.com";
